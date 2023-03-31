@@ -1,12 +1,7 @@
 <h3><?= $message ?? ''; ?></h3>
 
-
 <form method="post">
-
     <div class="bloco">
-        <div class="podraz">
-            <p>Помещение</p>
-        </div>
         <div class="create">
             <?php
             if (app()->auth::check() && app()->auth::User()->id_role === 1):
@@ -33,26 +28,21 @@
             }
             ?>
         </div>
-
     </div>
-
 </form>
 
 <style>
+
+    .forma{
+        display: flex;
+        justify-content: center;
+    }
     .bloco {
         display: flex;
         align-items: center;
         text-align: center;
+        justify-content: right;
     }
-
-    .podraz {
-        width: 279px;
-        height: 56px;
-        background-color: #AD8B79;
-        margin-right: 20px;
-        font-size: 20px;
-    }
-
     .create {
         width: 236px;
         height: 56px;

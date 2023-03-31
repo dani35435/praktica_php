@@ -25,7 +25,9 @@ class Site
         if ($request->method === 'POST') {
 
             $validator = new Validator($request->all(), [
-                'name' => ['required'],
+                'FirstName' => ['required'],
+                'LastName' => ['required'],
+                'MiddleName' => ['required'],
                 'login' => ['required', 'unique:users,login'],
                 'password' => ['required']
             ], [
@@ -39,7 +41,7 @@ class Site
             }
 
             if (User::create($request->all())) {
-                app()->route->redirect('/login');
+                app()->route->redirect('/hello');
             }
         }
         return new View('site.signup');
@@ -48,20 +50,51 @@ class Site
 
     public function room_add(Request $request): string
     {
+        if ($request->method === 'POST') {
 
-        if ($request->method === 'POST' && Room::create($request->all())) {
-            app()->route->redirect('/room');
+            $validator = new Validator($request->all(), [
+                'Name' => ['required'],
+                'Vid' => ['required'],
+                'Subdivision' => ['required']
+            ], [
+                'required' => 'Поле :field пусто',
+                'unique' => 'Поле :field должно быть уникально'
+            ]);
+
+            if($validator->fails()){
+                return new View('site.signup',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }
+
+            if (Room::create($request->all())) {
+                app()->route->redirect('/room');
+            }
         }
         return new View('site.room_add');
     }
 
     public function subdivision_add(Request $request): string
     {
-        if ($request->method === 'POST' && Subdivision::create($request->all())) {
-            app()->route->redirect('/subdivision');
-        }
+        if ($request->method === 'POST') {
 
-        return new View('site.subdivision_add', []);
+            $validator = new Validator($request->all(), [
+                'Name' => ['required'],
+                'Vid' => ['required'],
+            ], [
+                'required' => 'Поле :field пусто',
+                'unique' => 'Поле :field должно быть уникально'
+            ]);
+
+            if($validator->fails()){
+                return new View('site.signup',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }
+
+            if (Room::create($request->all())) {
+                app()->route->redirect('/subdivision');
+            }
+        }
+        return new View('site.subdivision_add');
     }
 
     public function login(Request $request): string
@@ -108,6 +141,33 @@ class Site
     {
         $subdivisions = subdivision::all();
         return new View('site.subdivision', ['subdivisions' => $subdivisions]);
+    }
+
+    public function abonent_add(Request $request): string
+    {
+        if ($request->method === 'POST') {
+
+            $validator = new Validator($request->all(), [
+                'FirstName' => ['required'],
+                'LastName' => ['required'],
+                'MiddleName' => ['required'],
+                'login' => ['required', 'unique:users,login'],
+                'password' => ['required']
+            ], [
+                'required' => 'Поле :field пусто',
+                'unique' => 'Поле :field должно быть уникально'
+            ]);
+
+            if($validator->fails()){
+                return new View('site.abonent_add',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }
+
+            if (User::create($request->all())) {
+                app()->route->redirect('/profile');
+            }
+        }
+        return new View('site.abonent_add');
     }
 }
 

@@ -58,7 +58,14 @@
         <div class="logo">
             <a href="<?= app()->route->getUrl('/room') ?>">Помещение</a>
             <a href="<?= app()->route->getUrl('/subdivision') ?>">Подразделение</a>
-            <a href="<?= app()->route->getUrl('/profile') ?>">Абоненты</a>
+            <?php
+            if (app()->auth::check() && app()->auth::User()->id_role === 1):
+                ?>
+                <a href="<?= app()->route->getUrl('/profile') ?>">Абоненты</a>
+
+            <?php
+            endif;
+            ?>
         </div>
         <div class="link">
             <?php
@@ -70,10 +77,20 @@
             <?php
             else:
                 ?>
+
+                <?php
+                if (app()->auth::User()->id_role === 1):
+                    ?>
+                    <a href="<?= app()->route->getUrl('/abonent_add') ?>">Добавить нового абонента</a>
+                <?php
+                endif;
+                ?>
+
                 <a href="<?= app()->route->getUrl('/logout') ?>">Выход(<?= app()->auth::User()->login ?>)</a>
             <?php
             endif;
             ?>
+
         </div>
     </div>
 </div>
