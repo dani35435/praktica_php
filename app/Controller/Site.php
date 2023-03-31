@@ -90,7 +90,7 @@ class Site
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
 
-            if (Room::create($request->all())) {
+            if (Subdivision::create($request->all())) {
                 app()->route->redirect('/subdivision');
             }
         }
@@ -168,6 +168,10 @@ class Site
             }
         }
         return new View('site.abonent_add');
+    }
+    public function search()
+    {
+        return (new View())->render('site.search');
     }
 }
 

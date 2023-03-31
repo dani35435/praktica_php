@@ -9,14 +9,15 @@
 
     <?php
     foreach ($users as $User) {
-        echo '<h5>Фамилия</h5>' . ' ' . $User->LastName;
+        echo '<h5>Фамилия</h5>' . '<div class="line"></div>' . $User->LastName;
+
     }
     ?>
 </div>
 <div class="bloc">
     <?php
     foreach ($users as $User) {
-        echo '<h5>Имя</h5>' . ' ' . $User->FirstName;
+        echo '<h5>Имя</h5>' . '<div class="line"></div>' . $User->FirstName;
     }
     ?>
 </div>
@@ -24,7 +25,7 @@
 <div class="bloc">
     <?php
     foreach ($users as $User) {
-        echo '<h5>Отчество</h5>' . ' ' . $User->MiddleName;
+        echo '<h5>Отчество</h5>' . '<div class="line"></div>' . $User->MiddleName;
     }
     ?>
 </div>
@@ -32,7 +33,7 @@
 <div class="bloc">
     <?php
     foreach ($users as $User) {
-        echo '<h5>Дата рождения</h5>' . ' ' . $User->Birthday;
+        echo '<h5>Дата рождения</h5>' . '<div class="line"></div>' . $User->Birthday;
     }
     ?>
 </div>
@@ -43,6 +44,18 @@
         display: flex;
         align-items: center;
         margin-left: 20px;
+    }
+
+    .line{
+
+        width: 200px;
+        height: 2px;
+        background-color: black;
+    }
+
+    h5{
+        margin: 0;
+        margin: 5px;
     }
 
     .bloc {

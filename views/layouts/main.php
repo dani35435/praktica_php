@@ -85,6 +85,13 @@
                 <?php
                 endif;
                 ?>
+                <?php
+                if (app()->auth::User()->id_role === 1):
+                    ?>
+                    <a href="<?= app()->route->getUrl('/search') ?>">Поиск</a>
+                <?php
+                endif;
+                ?>
 
                 <a href="<?= app()->route->getUrl('/logout') ?>">Выход(<?= app()->auth::User()->login ?>)</a>
             <?php

@@ -12,3 +12,4 @@ Route::add(['GET', 'POST'], '/subdivision_add', [Controller\Site::class, 'subdiv
 Route::add(['GET', 'POST'], '/profile', [Controller\Site::class, 'profile']);
 Route::add('GET', '/logout', [Controller\Site::class, 'logout']);
 Route::add(['GET', 'POST'], '/abonent_add', [Controller\Site::class, 'abonent_add']);
+Route::add(['GET', 'POST'], '/search', [Controller\Site::class, 'search']);

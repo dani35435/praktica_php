@@ -24,7 +24,8 @@
 
             foreach ($rooms as $Room) {
                 echo '<tr>';
-                echo '<td>' . '<h5>Помещение</h5>' . '<b>' . $Room->id . ' ' . $Room->Name . ' ' . $Room->Vid . ' ' . $Room->Subdivision . '</b>' . '</td>';
+                echo '<td>' . '<h5>Помещение</h5>' . '<b>' . $Room->id . ') ' . $Room->Name . ' ' . $Room->Vid . ' ' . $Room->Subdivision . '</b>' . '</td>';
+                echo ' <div class="line"></div>';
             }
             ?>
         </div>
@@ -37,12 +38,20 @@
         display: flex;
         justify-content: center;
     }
+
     .bloco {
         display: flex;
         align-items: center;
         text-align: center;
         justify-content: right;
     }
+
+    .line{
+        width: 500px;
+        height: 2px;
+        background-color: black;
+    }
+
     .create {
         width: 236px;
         height: 56px;

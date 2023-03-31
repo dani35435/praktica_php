@@ -23,15 +23,18 @@
     <div class="bloc">
 
         <div class="blocd">
+
             <?php
 
             foreach ($subdivisions as $Subdivision) {
                 echo '<tr>';
-                echo '<td>' . '<h5>Подразделение</h5>' . '<b>' . $Subdivision->id . ' ' . $Subdivision->Name . ' ' . $Subdivision->Vid . '</b>' . '</td>';
+                echo '<td>' . '<h5>Подразделение</h5>' . '<b>' . $Subdivision->id . ') ' . $Subdivision->Name . ' ' . $Subdivision->Vid . '</b>' . '</td>';
+                echo ' <div class="line"></div>';
             }
             ?>
         </div>
     </div>
+
 </div>
 
 <style>
@@ -58,9 +61,13 @@
         width: 1032px;
         height: 637px;
         background-color: #AD8B79;
+
     }
-
-
+    .line{
+        width: 500px;
+        height: 2px;
+        background-color: black;
+    }
     h5 {
         font-size: 30px;
     }
