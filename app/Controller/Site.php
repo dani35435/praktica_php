@@ -41,7 +41,8 @@ class Site
             }
 
             if (User::create($request->all())) {
-                app()->route->redirect('/hello');
+                app()->route->redirect('/login');
+                return false;
             }
         }
         return new View('site.signup');
@@ -173,6 +174,8 @@ class Site
     {
         return (new View())->render('site.search');
     }
+
+
 }
 
 

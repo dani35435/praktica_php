@@ -14,15 +14,16 @@
         "php": "^7.4 | ^8.0",
         "illuminate/database": "^11.0@dev",
         "illuminate/events": "^11.0@dev",
-        "nikic/fast-route": "^2.0@dev"
+        "nikic/fast-route": "^2.0@dev",
+        "dani35435/collect": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "Collect\\": "src/"
-        },
-        "files": [
-            "src/helpers.php"
-        ]
+            "Src\\": "core/Src/",
+            "": "app/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.1@dev"
     }
-
 }

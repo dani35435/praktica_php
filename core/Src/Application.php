@@ -31,10 +31,6 @@ class Application
    //Инициализация класса пользователя на основе настроек приложения
    $this->auth::init(new $this->settings->app['identity']);
 }
-
-
-
-
    public function __get($key)
    {
        switch ($key) {

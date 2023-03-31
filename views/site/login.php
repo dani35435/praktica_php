@@ -18,7 +18,7 @@
         background-color: grey;
         width: 470px;
         height: 60px;
-        color: pink;
+        color: black;
         font-size: 25px;
         border-radius: 10px;
         margin-top: 40px;
