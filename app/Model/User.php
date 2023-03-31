@@ -21,6 +21,7 @@ class User extends Model implements IdentityInterface
        'login',
        'password',
        'id_role'
+
    ];
 
    protected static function booted()
@@ -34,7 +35,7 @@ class User extends Model implements IdentityInterface
    //Выборка пользователя по первичному ключу
    public function findIdentity(int $id)
    {
-       return self::where('id', $id)->first('');
+       return self::where('id', $id)->first();
    }
 
    //Возврат первичного ключа
