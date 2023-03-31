@@ -18,8 +18,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Src\\": "core/Src/",
-            "": "app/"
-        }
+            "Collect\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     }
+
 }
