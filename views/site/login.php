@@ -34,6 +34,9 @@
         font-size: 20px;
         margin-top: 60px;
     }
+    h2{
+        text-align: center;
+    }
 </style>
 
 <h2>Авторизация</h2>
@@ -44,6 +47,7 @@
 if (!app()->auth::check()):
     ?>
     <form method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <div class="center">
             <div class="blocks">
 

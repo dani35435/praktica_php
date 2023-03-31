@@ -3,6 +3,7 @@
 <h3><?= $message ?? ''; ?></h3>
 <div class="center">
     <form method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <div class="blocks">
 
             <input type="text" name="FirstName" required placeholder="Фамилия">
@@ -36,6 +37,10 @@
     </form>
 </div>
 <style>
+
+    h2{
+        text-align: center;
+    }
     .center {
         margin-top: 50px;
         display: flex;
