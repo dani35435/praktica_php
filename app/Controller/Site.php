@@ -10,7 +10,9 @@ use Src\Auth\Auth;
 use Model\Room;
 use Model\Subdivision;
 use Src\Validator\Validator;
-
+use Model\Usernum;
+use Model\Vidroom;
+use Model\Vidsubdivision;
 
 class Site
 {
@@ -50,13 +52,20 @@ class Site
 
 
     public function room_add(Request $request): string
+
     {
+        $vidrooms = Vidroom::all();
+        $name = Vidroom::all();
+        $subdivisions = Subdivision::all();
+        $Name = Subdivision::all();
+
         if ($request->method === 'POST') {
 
             $validator = new Validator($request->all(), [
                 'Name' => ['required'],
                 'Vid' => ['required'],
-                'Subdivision' => ['required']
+                'Subdivision_id' => ['required'],
+                'id_room' => ['required']
             ], [
                 'required' => 'Поле :field пусто',
                 'unique' => 'Поле :field должно быть уникально'
@@ -66,16 +75,46 @@ class Site
                 return new View('site.signup',
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
-
             if (Room::create($request->all())) {
                 app()->route->redirect('/room');
             }
         }
-        return new View('site.room_add');
+        return new View('site.room_add',[
+            'vidrooms' => $vidrooms,
+            'name' => $name,
+            'subdivisions' => $subdivisions,
+            'Name' => $Name,
+        ]);
+    }
+
+
+    public function vid_room_add(Request $request): string
+    {
+        if ($request->method === 'POST') {
+
+            $validator = new Validator($request->all(), [
+                'Name' => ['required'],
+            ], [
+                'required' => 'Поле :field пусто',
+                'unique' => 'Поле :field должно быть уникально'
+            ]);
+            if($validator->fails()){
+                return new View('site.signup',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }
+            if (Vidroom::create($request->all())) {
+                app()->route->redirect('/room');
+            }
+        }
+        return new View('site.vid_room_add');
     }
 
     public function subdivision_add(Request $request): string
+
     {
+        $vidsubdivisions = Vidsubdivision::all();
+        $Name = Vidsubdivision::all();
+
         if ($request->method === 'POST') {
 
             $validator = new Validator($request->all(), [
@@ -95,7 +134,33 @@ class Site
                 app()->route->redirect('/subdivision');
             }
         }
-        return new View('site.subdivision_add');
+        return new View('site.subdivision_add', [
+            'vidsubdivisions' => $vidsubdivisions,
+            'Name' => $Name,]);
+    }
+
+    public function vid_subdivision_add(Request $request): string
+    {
+        if ($request->method === 'POST') {
+
+            $validator = new Validator($request->all(), [
+                'Name' => ['required'],
+
+            ], [
+                'required' => 'Поле :field пусто',
+                'unique' => 'Поле :field должно быть уникально'
+            ]);
+
+            if($validator->fails()){
+                return new View('site.signup',
+                    ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
+            }
+
+            if (Vidsubdivision::create($request->all())) {
+                app()->route->redirect('/subdivision');
+            }
+        }
+        return new View('site.vid_subdivision_add');
     }
 
     public function login(Request $request): string
@@ -146,6 +211,12 @@ class Site
 
     public function abonent_add(Request $request): string
     {
+
+        $usernums = Usernum::all();
+        $number = Usernum::all();
+        $subdivisions = Subdivision::all();
+        $Name = Subdivision::all();
+
         if ($request->method === 'POST') {
 
             $validator = new Validator($request->all(), [
@@ -168,7 +239,12 @@ class Site
                 app()->route->redirect('/profile');
             }
         }
-        return new View('site.abonent_add');
+        return new View('site.abonent_add', [
+            'usernums' => $usernums,
+            'number' => $number,
+            'subdivisions' => $subdivisions,
+            'Name' => $Name
+        ]);
     }
     public function search()
     {

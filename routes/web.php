@@ -13,3 +13,6 @@ Route::add(['GET', 'POST'], '/profile', [Controller\Site::class, 'profile']);
 Route::add('GET', '/logout', [Controller\Site::class, 'logout']);
 Route::add(['GET', 'POST'], '/abonent_add', [Controller\Site::class, 'abonent_add']);
 Route::add(['GET', 'POST'], '/search', [Controller\Site::class, 'search']);
+Route::add(['GET', 'POST'], '/user_num', [Controller\Site::class, 'user_num'])->middleware('auth');
+Route::add(['GET', 'POST'], '/vid_subdivision_add', [Controller\Site::class, 'vid_subdivision_add'])->middleware('auth');
+Route::add(['GET', 'POST'], '/vid_room_add', [Controller\Site::class, 'vid_room_add'])->middleware('auth');

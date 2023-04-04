@@ -17,18 +17,43 @@
             <input type="text" name="Birthday" required placeholder="Дата рождения">
 
 
-            <input type="text" name="Room_ID" required placeholder="Помещение">
+            <div class="block">
+                <?php
+                echo('Выбор подразделения:');
+                echo '<select id="" name="Name">';
+                foreach ($subdivisions as $Subdivision) {
+                    echo "<option value=\"$Subdivision->Name\">"
+                        . $Subdivision->Name.
+                        "</option>";
+                }
+                echo '</select>';
+                ?>
+            </div>
 
 
-            <input type="text" name="login" required placeholder="login">
+            <div class="block">
+                <?php
+                echo('Выбор номера:');
+                echo '<select id="" name="number">';
+                foreach ($usernums as $Usernum) {
+                    echo "<option value=\"$Usernum->number\">"
+                        . $Usernum->number.
+                        "</option>";
+                }
+                echo '</select>';
+                ?>
+            </div>
+
+            <input type="text" name="login" required placeholder="логин">
 
 
-            <input type="password" name="password" required placeholder="password">
+            <input type="password" name="password" required placeholder="пароль">
 
 
             <select name="id_role" id="id_role">
                 <option value="1">Администратор</option>
-                <option value="2">Абонент</option>
+                <option value="2">менеджер</option>
+                <option value="3">Абонент</option>
             </select>
 
             <button>REGISTER</button>

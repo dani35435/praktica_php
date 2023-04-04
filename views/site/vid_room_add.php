@@ -5,21 +5,7 @@
     <div class="centr">
         <div class="blocks">
             <div class="block">
-                <input type="text" name="Name" required placeholder="Название">
-            </div>
-            <div class="block">
-                <div class="block">
-                    <?php
-                    echo('Вид:');
-                    echo '<select id="" name="name">';
-                    foreach ($vidsubdivisions as $Vidsubdivision) {
-                        echo "<option value=\"$Vidsubdivision->name\">"
-                            . $Vidsubdivision->name.
-                            "</option>";
-                    }
-                    echo '</select>';
-                    ?>
-                </div>
+                <input type="text" name="Name"required placeholder="Название">
             </div>
 
 
@@ -32,31 +18,21 @@
 
 
 <style>
-    .centr {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    button {
+    button{
         background-color: grey;
         width: 420px;
         height: 50px;
-        color: #000;
         font-size: 25px;
         border-radius: 10px;
     }
-
-    input {
+    input{
         padding: 10px;
         width: 400px;
         border: 0;
-        color: #000;
         border-radius: 10px;
         font-size: 20px;
     }
-
-    .blocks {
+    .blocks{
         background-color: #AD8B79;
         width: 772px;
         height: 739px;
@@ -67,14 +43,14 @@
         border-radius: 30px;
     }
 
-    .block {
-        background-color: #AD8B79;
+    .block{
+        background-color: #D9D9D9;
         width: 450px;
         height: 70px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 130px;
+        margin-top: 175px;
         border-radius: 20px;
     }
 

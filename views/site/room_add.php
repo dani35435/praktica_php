@@ -8,10 +8,32 @@
             <input type="text" name="Name" required placeholder="Название">
 
 
-            <input type="text" name="Vid" required placeholder="Вид">
+            <div class="block">
+                <?php
+                echo('Вид:');
+                echo '<select id="" name="name">';
+                foreach ($vidrooms as $Vidroom) {
+                    echo "<option value=\"$Vidroom->name\">"
+                        . $Vidroom->name .
+                        "</option>";
+                }
+                echo '</select>';
+                ?>
+            </div>
 
 
-            <input type="text" name="Subdivision" required placeholder="Подразделение">
+            <div class="block">
+                <?php
+                echo('Помещение:');
+                echo '<select id="" name="Mame">';
+                foreach ($subdivisions as $Subdivision) {
+                    echo "<option value=\"$Subdivision->Name\">"
+                        . $Subdivision->Name .
+                        "</option>";
+                }
+                echo '</select>';
+                ?>
+            </div>
 
 
             <button>Создать</button>

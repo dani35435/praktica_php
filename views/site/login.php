@@ -57,10 +57,10 @@ if (!app()->auth::check()):
                 <input type="text" name="LastName" placeholder="имя">
 
 
-                <input type="text" name="login" placeholder="login">
+                <input type="text" name="login" placeholder="логин">
 
 
-                <input type="password" name="password" placeholder="password">
+                <input type="password" name="password" placeholder="пароль">
 
                 <button>Войти</button>
 

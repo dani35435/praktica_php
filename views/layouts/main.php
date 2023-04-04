@@ -79,12 +79,13 @@
                 ?>
 
                 <?php
-                if (app()->auth::User()->id_role === 1):
+                if (app()->auth::User()->id_role === 1 || 2):
                     ?>
                     <a href="<?= app()->route->getUrl('/abonent_add') ?>">Добавить нового абонента</a>
                 <?php
                 endif;
                 ?>
+
                 <?php
                 if (app()->auth::User()->id_role === 1):
                     ?>

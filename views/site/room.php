@@ -16,6 +16,18 @@
             <?php
             endif;
             ?>
+
+            <div class="vidpodraz">
+                <p>Вид Помещения</p>
+            </div>
+            <div class="create2">
+                <?php
+                if (app()->auth::User()->id_role === 1):
+                    ?>
+                    <button><a href="vid_room_add">создать</a></button>
+                <?php
+                endif;
+                ?>
         </div>
     </div>
     <div class="forma">
@@ -37,13 +49,6 @@
     .forma{
         display: flex;
         justify-content: center;
-    }
-
-    .bloco {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: right;
     }
 
     .line{
