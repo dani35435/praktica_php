@@ -5,7 +5,7 @@
     <div class="centr">
         <div class="blocks">
             <div class="block">
-                <input type="text" name="Name" required placeholder="Название">
+                <input type="text" name="NameSubdivision" required placeholder="Название">
             </div>
             <div class="block">
                 <div class="block">

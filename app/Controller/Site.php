@@ -57,15 +57,15 @@ class Site
         $vidrooms = Vidroom::all();
         $name = Vidroom::all();
         $subdivisions = Subdivision::all();
-        $Name = Subdivision::all();
+        $NameSubdivision = Subdivision::all();
 
         if ($request->method === 'POST') {
 
             $validator = new Validator($request->all(), [
-                'Name' => ['required'],
-                'Vid' => ['required'],
-                'Subdivision_id' => ['required'],
-                'id_room' => ['required']
+                'NameRoom' => ['required'],
+//                'Vid' => ['required'],
+//                'Subdivision_id' => ['required'],
+//                'id_room' => ['required']
             ], [
                 'required' => 'Поле :field пусто',
                 'unique' => 'Поле :field должно быть уникально'
@@ -83,7 +83,7 @@ class Site
             'vidrooms' => $vidrooms,
             'name' => $name,
             'subdivisions' => $subdivisions,
-            'Name' => $Name,
+            'NameSubdivision' => $NameSubdivision,
         ]);
     }
 
@@ -113,13 +113,13 @@ class Site
 
     {
         $vidsubdivisions = Vidsubdivision::all();
-        $Name = Vidsubdivision::all();
+        $name = Vidsubdivision::all();
 
         if ($request->method === 'POST') {
 
             $validator = new Validator($request->all(), [
-                'Name' => ['required'],
-                'Vid' => ['required'],
+                'NameSubdivision' => ['required'],
+//                'Vid' => ['required'],
             ], [
                 'required' => 'Поле :field пусто',
                 'unique' => 'Поле :field должно быть уникально'
@@ -136,7 +136,7 @@ class Site
         }
         return new View('site.subdivision_add', [
             'vidsubdivisions' => $vidsubdivisions,
-            'Name' => $Name,]);
+            'name' => $name,]);
     }
 
     public function vid_subdivision_add(Request $request): string
@@ -199,14 +199,17 @@ class Site
     public function room(): string
     {
         $rooms = room::all();
-        return new View('site.room', ['rooms' => $rooms]);
+        $users = user::all();
+        return new View('site.room', ['rooms' => $rooms, 'users' => $users]);
     }
 
     public function subdivision(): string
 
     {
         $subdivisions = subdivision::all();
-        return new View('site.subdivision', ['subdivisions' => $subdivisions]);
+        $users = user::all();
+        $rooms = Room::all();
+        return new View('site.subdivision', ['subdivisions' => $subdivisions, 'users' => $users,'rooms' => $rooms]);
     }
 
     public function abonent_add(Request $request): string
@@ -214,8 +217,9 @@ class Site
 
         $usernums = Usernum::all();
         $number = Usernum::all();
-        $subdivisions = Subdivision::all();
-        $Name = Subdivision::all();
+        $rooms = Room::all();
+        $NameRoom = Room::all();
+
 
         if ($request->method === 'POST') {
 
@@ -242,8 +246,8 @@ class Site
         return new View('site.abonent_add', [
             'usernums' => $usernums,
             'number' => $number,
-            'subdivisions' => $subdivisions,
-            'Name' => $Name
+            'rooms' => $rooms,
+            'NameRoom' => $NameRoom,
         ]);
     }
     public function search()

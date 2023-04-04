@@ -3,12 +3,13 @@
 
 <div class="main">
     <div class="blocks">
+        <?php
+        if (app()->auth::check() && app()->auth::User()->id_role === 1):
+        ?>
         <div class="creates">
             <div class="create">
-                <?php
-                if (app()->auth::check() && app()->auth::User()->id_role === 1):
-                    ?>
-                    <button><a href="subdivision_add">создать</a></button>
+
+                <button><a href="subdivision_add">создать</a></button>
 
                 <?php
                 else:
@@ -18,15 +19,16 @@
                 endif;
                 ?>
             </div>
+            <?php
+            if (app()->auth::User()->id_role === 1):
+            ?>
             <div class="vidpodraz">
                 <p>Вид подразделения</p>
             </div>
 
             <div class="create">
-                <?php
-                if (app()->auth::User()->id_role === 1):
-                    ?>
-                    <button><a href="vid_subdivision_add">создать</a></button>
+
+                <button><a href="vid_subdivision_add">создать</a></button>
                 <?php
                 endif;
                 ?>
@@ -40,11 +42,29 @@
 
                 foreach ($subdivisions as $Subdivision) {
                     echo '<tr>';
-                    echo '<td>' . '<h5>Подразделение</h5>' . '<b>' . $Subdivision->id . ') ' . $Subdivision->Name . ' ' . $Subdivision->Vid . '</b>' . '</td>';
+                    echo '<td>' . '<h5>Подразделения</h5>' . '<b>' . ' имя подразделения - '  . $Subdivision->NameSubdivision . '</b>' . '</td>';
                     echo ' <div class="line"></div>';
                 }
                 ?>
+                <?php
+
+                foreach ($rooms as $Room) {
+                    echo '<tr>';
+                    echo '<td>' . '<h5>помещение</h5>' . '<b>' . ' имя подразделения к которому принадлежит помещение- '  . $Room->NameRoom . '</b>' . '</td>';
+                    echo ' <div class="line"></div>';
+                }
+                ?>
+<!--создать в базе данных у подразделения поле NameRoom связать его с ключом при создании -->
+            <?php
+
+                foreach ($users as $User) {
+                    echo '<tr>';
+                    echo '<td>' . '<h5>Абонентыв</h5>' . '<b>' . $User->NameSubdivision . 'пользователь - ' . $User->login . '</b>' . '</td>';
+                    echo ' <div class="line"></div>';
+                }
+                 ?>
             </div>
+
         </div>
 
     </div>

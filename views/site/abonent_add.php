@@ -14,22 +14,21 @@
             <input type="text" name="MiddleName" required placeholder="Отчество">
 
 
-            <input type="text" name="Birthday" required placeholder="Дата рождения">
+            <input type="date" name="Birthday" required placeholder="Дата рождения">
 
 
             <div class="block">
                 <?php
-                echo('Выбор подразделения:');
-                echo '<select id="" name="Name">';
-                foreach ($subdivisions as $Subdivision) {
-                    echo "<option value=\"$Subdivision->Name\">"
-                        . $Subdivision->Name.
+                echo('Выбор помещения:');
+                echo '<select id="" name="NameRoom">';
+                foreach ($rooms as $Room) {
+                    echo "<option value=\"$Room->NameRoom\">"
+                        . $Room->NameRoom.
                         "</option>";
                 }
                 echo '</select>';
                 ?>
             </div>
-
 
             <div class="block">
                 <?php

@@ -34,13 +34,14 @@
         <div class="bloc">
             <?php
 
-            foreach ($rooms as $Room) {
+            foreach ($users as $User) {
                 echo '<tr>';
-                echo '<td>' . '<h5>Помещение</h5>' . '<b>' . $Room->id . ') ' . $Room->Name . ' ' . $Room->Vid . ' ' . $Room->Subdivision . '</b>' . '</td>';
+                echo '<td>' . '<h5>Помещение</h5>' . '<b>' . 'пользователь - ' . $User->login . '<br>' . 'имя помещения к которому он принадлежит - ' . $User->NameRoom . '</b>' . '</td>';
                 echo ' <div class="line"></div>';
             }
             ?>
         </div>
+
     </div>
 </form>
 

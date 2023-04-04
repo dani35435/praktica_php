@@ -55,48 +55,48 @@
 <body>
 <div class="header">
     <div class="nav">
-        <div class="logo">
-            <a href="<?= app()->route->getUrl('/room') ?>">Помещение</a>
-            <a href="<?= app()->route->getUrl('/subdivision') ?>">Подразделение</a>
-            <?php
-            if (app()->auth::check() && app()->auth::User()->id_role === 1):
-                ?>
-                <a href="<?= app()->route->getUrl('/profile') ?>">Абоненты</a>
+        <div class="link">
 
             <?php
-            endif;
+                if (!app()->auth::check()):
             ?>
-        </div>
-        <div class="link">
-            <?php
-            if (!app()->auth::check()):
-                ?>
-                <a href="<?= app()->route->getUrl('/signup') ?>">Регистрация</a>
+                <!--<a href="--><?php //= app()->route->getUrl('/signup')?><!--">Регистрация</a>-->
                 <a href="<?= app()->route->getUrl('/login') ?>">Вход</a>
 
             <?php
-            else:
+                else:
+            ?>
+                <a href="<?= app()->route->getUrl('/room') ?>">Помещение</a>
+                <a href="<?= app()->route->getUrl('/subdivision') ?>">Подразделение</a>
+
+                <?php
+                    if (app()->auth::check() && app()->auth::User()->id_role === 1):
+                ?>
+                    <a href="<?= app()->route->getUrl('/profile') ?>">Абоненты</a>
+
+                <?php
+                    endif;
                 ?>
 
                 <?php
-                if (app()->auth::User()->id_role === 1 || 2):
-                    ?>
+                    if (app()->auth::User()->id_role === 1 || 2):
+                ?>
                     <a href="<?= app()->route->getUrl('/abonent_add') ?>">Добавить нового абонента</a>
                 <?php
-                endif;
+                    endif;
                 ?>
 
                 <?php
-                if (app()->auth::User()->id_role === 1):
-                    ?>
+                    if (app()->auth::User()->id_role === 1):
+                ?>
                     <a href="<?= app()->route->getUrl('/search') ?>">Поиск</a>
                 <?php
-                endif;
+                    endif;
                 ?>
 
                 <a href="<?= app()->route->getUrl('/logout') ?>">Выход(<?= app()->auth::User()->login ?>)</a>
             <?php
-            endif;
+                endif;
             ?>
 
         </div>

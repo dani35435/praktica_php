@@ -13,7 +13,6 @@ class Vidsubdivision extends Model
     protected $fillable = [
         'id',
         'Name',
-
     ];
 
 }

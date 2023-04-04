@@ -5,7 +5,7 @@
     <div class="centr">
         <div class="blocks">
 
-            <input type="text" name="Name" required placeholder="Название">
+            <input type="text" name="NameRoom" required placeholder="Название">
 
 
             <div class="block">
@@ -24,11 +24,11 @@
 
             <div class="block">
                 <?php
-                echo('Помещение:');
-                echo '<select id="" name="Mame">';
+                echo('Подразделение:');
+                echo '<select id="" name="NameSubdivision">';
                 foreach ($subdivisions as $Subdivision) {
-                    echo "<option value=\"$Subdivision->Name\">"
-                        . $Subdivision->Name .
+                    echo "<option value=\"$Subdivision->NameSubdivision\">"
+                        . $Subdivision->NameSubdivision .
                         "</option>";
                 }
                 echo '</select>';
