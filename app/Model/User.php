@@ -18,6 +18,7 @@ class User extends Model implements IdentityInterface
        'MiddleName',
        'Birthday',
        'NameRoom',
+       'NameSubdivision',
        'login',
        'password',
        'id_role'

@@ -11,7 +11,7 @@
             <div class="block">
                 <?php
                 echo('Вид:');
-                echo '<select id="" name="name">';
+                echo '<select id="" name="Vid">';
                 foreach ($vidrooms as $Vidroom) {
                     echo "<option value=\"$Vidroom->name\">"
                         . $Vidroom->name .

@@ -14,6 +14,5 @@ class Subdivision extends Model
        'id',
        'NameSubdivision',
        'Vid',
-       'login',
    ];   
 }

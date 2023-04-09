@@ -34,37 +34,32 @@
                 ?>
             </div>
         </div>
-        <div class="bloc">
+        <div class="all">
 
-            <div class="blocd">
 
-                <?php
+            <div class="bloc">
+                <div class="block_room">
+                    <?php
 
-                foreach ($subdivisions as $Subdivision) {
-                    echo '<tr>';
-                    echo '<td>' . '<h5>Подразделения</h5>' . '<b>' . ' имя подразделения - '  . $Subdivision->NameSubdivision . '</b>' . '</td>';
-                    echo ' <div class="line"></div>';
-                }
-                ?>
-                <?php
+                    foreach ($subdivisions as $Subdivision) {
+                        echo '<tr>';
+                        echo '<div class="inside_block">' . '<td>' . '<h5>Помещения</h5>' . '<b>' . 'имя подразделения - ' . $Subdivision->NameSubdivision . '</b>' . '</td>' . '</div>';
 
-                foreach ($rooms as $Room) {
-                    echo '<tr>';
-                    echo '<td>' . '<h5>помещение</h5>' . '<b>' . ' имя подразделения к которому принадлежит помещение- '  . $Room->NameRoom . '</b>' . '</td>';
-                    echo ' <div class="line"></div>';
-                }
-                ?>
-<!--создать в базе данных у подразделения поле NameRoom связать его с ключом при создании -->
-            <?php
+                    }
+                    ?>
+                </div>
 
-                foreach ($users as $User) {
-                    echo '<tr>';
-                    echo '<td>' . '<h5>Абонентыв</h5>' . '<b>' . $User->NameSubdivision . 'пользователь - ' . $User->login . '</b>' . '</td>';
-                    echo ' <div class="line"></div>';
-                }
-                 ?>
+                <div class="block_room">
+                    <?php
+
+                    foreach ($users as $User) {
+                        echo '<tr>';
+                        echo '<div class="inside_block">' . '<td>' . '<h5>Пользователи</h5>' . '<b>' . 'пользователь - ' . $User->login . '<br>' . 'подразделение - ' . $User->NameSubdivision . '<br>' . '</b>' . '</td>' . '</div>';
+                    }
+                    ?>
+
+                </div>
             </div>
-
         </div>
 
     </div>
@@ -74,6 +69,33 @@
             display: flex;
             align-items: center;
             justify-content: right;
+        }
+
+        .all {
+            display: flex;
+            justify-content: center;
+        }
+
+        .inside_block {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .block_room {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+        }
+
+        .bloc {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 100px;
+            width: 1032px;
+            height: 637px;
+            background-color: #AD8B79;
         }
 
         .create {
@@ -88,19 +110,6 @@
             justify-content: center;
         }
 
-        .blocd {
-            margin-top: 100px;
-            width: 1032px;
-            height: 637px;
-            background-color: #AD8B79;
-
-        }
-
-        .line {
-            width: 500px;
-            height: 2px;
-            background-color: black;
-        }
 
         h5 {
             font-size: 30px;

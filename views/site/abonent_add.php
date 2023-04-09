@@ -32,6 +32,19 @@
 
             <div class="block">
                 <?php
+                echo('Выбор подразделения:');
+                echo '<select id="" name="NameSubdivision">';
+                foreach ($subdivisions as $Subdivision) {
+                    echo "<option value=\"$Subdivision->NameSubdivision\">"
+                        . $Subdivision->NameSubdivision.
+                        "</option>";
+                }
+                echo '</select>';
+                ?>
+            </div>
+
+            <div class="block">
+                <?php
                 echo('Выбор номера:');
                 echo '<select id="" name="number">';
                 foreach ($usernums as $Usernum) {

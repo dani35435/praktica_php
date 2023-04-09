@@ -206,10 +206,14 @@ class Site
     public function subdivision(): string
 
     {
-        $subdivisions = subdivision::all();
-        $users = user::all();
-        $rooms = Room::all();
-        return new View('site.subdivision', ['subdivisions' => $subdivisions, 'users' => $users,'rooms' => $rooms]);
+        $subdivisions = Subdivision::all();
+        $users = User::all();
+
+        return new View('site.subdivision',
+            [
+                'subdivisions' => $subdivisions,
+                'users' => $users,
+            ]);
     }
 
     public function abonent_add(Request $request): string
@@ -219,6 +223,8 @@ class Site
         $number = Usernum::all();
         $rooms = Room::all();
         $NameRoom = Room::all();
+        $subdivisions = Subdivision::all();
+        $NameSubdivision  = Subdivision ::all();
 
 
         if ($request->method === 'POST') {
@@ -248,6 +254,8 @@ class Site
             'number' => $number,
             'rooms' => $rooms,
             'NameRoom' => $NameRoom,
+            'subdivisions' => $subdivisions,
+            'NameSubdivision' => $NameSubdivision,
         ]);
     }
     public function search()

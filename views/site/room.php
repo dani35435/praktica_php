@@ -28,34 +28,54 @@
                 <?php
                 endif;
                 ?>
+            </div>
         </div>
-    </div>
-    <div class="forma">
-        <div class="bloc">
-            <?php
+        <div class="forma">
+            <div class="bloc">
+                <div class="block_room">
+                    <?php
 
-            foreach ($users as $User) {
-                echo '<tr>';
-                echo '<td>' . '<h5>Помещение</h5>' . '<b>' . 'пользователь - ' . $User->login . '<br>' . 'имя помещения к которому он принадлежит - ' . $User->NameRoom . '</b>' . '</td>';
-                echo ' <div class="line"></div>';
-            }
-            ?>
+                    foreach ($rooms as $Room) {
+                        echo '<tr>';
+                        echo '<div class="inside_block">' . '<td>' . '<h5>Помещения</h5>' . '<b>' . 'имя помещения - ' . $Room->NameRoom . '</b>' . '</td>' . '</div>';
+
+                    }
+                    ?>
+                </div>
+
+                <div class="block_room">
+                    <?php
+
+                    foreach ($users as $User) {
+                        echo '<tr>';
+                        echo '<div class="inside_block">' . '<td>' . '<h5>Пользователи</h5>' . '<b>' . 'пользователь - ' . $User->login . '<br>' . 'помещение - ' . $User->NameRoom . '<br>' . '</b>' . '</td>' . '</div>';
+                    }
+                    ?>
+
+                </div>
+            </div>
+
         </div>
-
-    </div>
 </form>
 
 <style>
 
-    .forma{
+    .forma {
         display: flex;
         justify-content: center;
     }
 
-    .line{
-        width: 500px;
-        height: 2px;
-        background-color: black;
+    .inside_block {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .block_room {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
     }
 
     .create {
@@ -65,6 +85,8 @@
     }
 
     .bloc {
+        display: flex;
+        justify-content: space-around;
         margin-top: 100px;
         width: 1032px;
         height: 637px;

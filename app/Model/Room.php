@@ -15,6 +15,7 @@ class Room extends Model
        'NameRoom',
        'Vid',
        'NameSubdivision',
+       'login',
    ];
 
 }
