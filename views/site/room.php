@@ -49,13 +49,31 @@
                     foreach ($users as $User) {
                         echo '<tr>';
                         echo '<div class="inside_block">' . '<td>' . '<h5>Пользователи</h5>' . '<b>' . 'пользователь - ' . $User->login . '<br>' . 'помещение - ' . $User->NameRoom . '<br>' . '</b>' . '</td>' . '</div>';
+
+
                     }
                     ?>
 
                 </div>
+
+                <div class="block_room">
+                    <p>Общее количество пользователей</p>
+                    <?php
+                        $connect = mysqli_connect("localhost", "root", "", "mvc") or die("Error");
+                    ?>
+
+                    <?php
+                    $res = $connect->query("SELECT count(NameRoom) FROM users ");
+                    $row = $res->fetch_row();
+                    $count = $row[0];
+                    echo 'количество пользователей - ', $count
+                    ?>
+                </div>
             </div>
 
         </div>
+
+
 </form>
 
 <style>

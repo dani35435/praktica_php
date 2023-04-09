@@ -37,7 +37,7 @@ class Site
                 'unique' => 'Поле :field должно быть уникально'
             ]);
 
-            if($validator->fails()){
+            if ($validator->fails()) {
                 return new View('site.signup',
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
@@ -71,7 +71,7 @@ class Site
                 'unique' => 'Поле :field должно быть уникально'
             ]);
 
-            if($validator->fails()){
+            if ($validator->fails()) {
                 return new View('site.signup',
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
@@ -79,7 +79,7 @@ class Site
                 app()->route->redirect('/room');
             }
         }
-        return new View('site.room_add',[
+        return new View('site.room_add', [
             'vidrooms' => $vidrooms,
             'name' => $name,
             'subdivisions' => $subdivisions,
@@ -98,7 +98,7 @@ class Site
                 'required' => 'Поле :field пусто',
                 'unique' => 'Поле :field должно быть уникально'
             ]);
-            if($validator->fails()){
+            if ($validator->fails()) {
                 return new View('site.signup',
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
@@ -125,7 +125,7 @@ class Site
                 'unique' => 'Поле :field должно быть уникально'
             ]);
 
-            if($validator->fails()){
+            if ($validator->fails()) {
                 return new View('site.signup',
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
@@ -151,7 +151,7 @@ class Site
                 'unique' => 'Поле :field должно быть уникально'
             ]);
 
-            if($validator->fails()){
+            if ($validator->fails()) {
                 return new View('site.signup',
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
@@ -224,7 +224,7 @@ class Site
         $rooms = Room::all();
         $NameRoom = Room::all();
         $subdivisions = Subdivision::all();
-        $NameSubdivision  = Subdivision ::all();
+        $NameSubdivision = Subdivision::all();
 
 
         if ($request->method === 'POST') {
@@ -240,7 +240,7 @@ class Site
                 'unique' => 'Поле :field должно быть уникально'
             ]);
 
-            if($validator->fails()){
+            if ($validator->fails()) {
                 return new View('site.abonent_add',
                     ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE)]);
             }
@@ -258,6 +258,7 @@ class Site
             'NameSubdivision' => $NameSubdivision,
         ]);
     }
+
     public function search()
     {
         return (new View())->render('site.search');
